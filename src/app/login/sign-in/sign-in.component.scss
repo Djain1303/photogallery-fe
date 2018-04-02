@@ -1,0 +1,22 @@
+.sign-in-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  .page-title {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .switch-to-sign-up{
+    button{
+      background: rgba(255, 255, 255, .2);
+      border: 0;
+      color: #F1F1F1;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 20px;
+      margin-top: 20px;
+      padding: 10px;
+    }
+  }
+}

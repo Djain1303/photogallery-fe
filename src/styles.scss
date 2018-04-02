@@ -9,12 +9,38 @@ body {
 .input-full-width {
     .mat-form-field-label {
         color: #F1F1F1;
+        font-weight: bold;
     }
     .mat-form-field-label-wrapper {
         margin-top: 20px;
         margin-left: 30px;
     }
+    .mat-form-field-wrapper{
+      padding-bottom: 0;
+    }
     .mat-form-field-underline {
         display: none;
     }
+    .mat-input-element{
+      padding-left: 30px;
+      font-weight: bold;
+    }
+    .mat-error{
+      margin-top: 10px;
+      color: #f9a19a;
+      margin-left: 30px;
+    }
 }
+
+// .sign-up-form, .sign-in-form{
+//   button{
+//       background: transparent;
+//       border: solid 1px #FADED6;
+//       color: #F1F1F1;
+//       height: 60px;
+//       border-radius: 30px;
+//       cursor: pointer;
+//       font-weight: bold;
+//       font-size: 16px;
+//     }
+// }
