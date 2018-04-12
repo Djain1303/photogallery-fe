@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-info',
@@ -7,6 +7,8 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent implements OnInit {
+
+  formVar: FormGroup;
 
   public model = {
     name: '',
@@ -27,9 +29,14 @@ export class PersonalInfoComponent implements OnInit {
     Validators.required
   ]);
 
-  constructor( ) { }
+  constructor( private fb: FormBuilder ) { }
 
   ngOnInit() {
+    this.formVar = this.fb.group(this.model);
   }
 
+  onsubmit(){
+    if(FormControl)
+    console.log(this.formVar.value);
+  }
 }

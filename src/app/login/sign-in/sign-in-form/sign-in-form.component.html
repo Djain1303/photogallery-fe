@@ -2,7 +2,7 @@
     <form class="sign-in-form">
 
         <mat-form-field class="input-full-width">
-          <input matInput placeholder="Email" [formControl]="emailFormControl" class="sign-in-inputs">
+            <input matInput placeholder="Email" [formControl]="emailFormControl" class="sign-in-inputs">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
             </mat-error>
@@ -21,7 +21,7 @@
         </mat-form-field>
 
         <div class="sign-in-form-continue-button">
-         <button mat-button>Continue</button>
+            <button routerLink="/home">Continue</button>
         </div>
 
     </form>

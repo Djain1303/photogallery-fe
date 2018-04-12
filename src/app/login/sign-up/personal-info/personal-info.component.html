@@ -1,5 +1,5 @@
 <div class="personal-info-form-container">
-    <form class="sign-up-form">
+    <form class="sign-up-form" [formGroup]="formVar" (ngSubmit)="onSubmit()">
         <mat-form-field class="input-full-width">
             <input matInput placeholder="Name" [formControl]="nameFormControl" class="sign-up-inputs">
             <mat-error *ngIf="nameFormControl.hasError('required')">
@@ -28,15 +28,15 @@
         </mat-form-field>
 
         <div class="personal-info-continue-button">
-         <button mat-button>Continue</button>
+            <button type="submit">Continue</button>
         </div>
-        
+
     </form>
 
     <div class="switch-to-sign-in">
-      <span>Or</span>
-      <button mat-button>Sign In</button>
-      <span>here</span>
+        <span>Or</span>
+        <button routerLink="../sign-in">Sign In</button>
+        <span>here</span>
     </div>
 
 </div>

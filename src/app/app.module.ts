@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule , ReactiveFormsModule}   from '@angular/forms';
@@ -13,6 +14,8 @@ import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignInFormComponent } from './login/sign-in/sign-in-form/sign-in-form.component';
 import { PersonalInfoComponent } from './login/sign-up/personal-info/personal-info.component';
 
+import { LoginDataService } from './login-data.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,18 +25,19 @@ import { PersonalInfoComponent } from './login/sign-up/personal-info/personal-in
     SignUpComponent,
     SignInComponent,
     SignInFormComponent,
-    PersonalInfoComponent
+    PersonalInfoComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     MatInputModule,
-    
+    AppRoutingModule,
     BrowserAnimationsModule
     
   ],
-  providers: [],
+  providers: [LoginDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
