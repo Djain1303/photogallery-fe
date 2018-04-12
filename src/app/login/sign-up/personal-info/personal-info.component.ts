@@ -35,8 +35,8 @@ export class PersonalInfoComponent implements OnInit {
     this.formVar = this.fb.group(this.model);
   }
 
-  onsubmit(){
+  onSubmit(a){
     if(FormControl)
-    console.log(this.formVar.value);
+    console.log(a.value);
   }
 }

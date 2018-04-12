@@ -15,21 +15,25 @@ body {
         margin-top: 20px;
         margin-left: 30px;
     }
-    .mat-form-field-wrapper{
-      padding-bottom: 0;
+    .mat-form-field-wrapper {
+        padding-bottom: 0;
     }
     .mat-form-field-underline {
         display: none;
     }
-    .mat-input-element{
-      padding-left: 30px;
-      font-weight: bold;
+    .mat-input-element {
+        padding-left: 30px;
+        font-weight: bold;
     }
-    .mat-error{
-      margin-top: 10px;
-      color: #f9a19a;
-      margin-left: 30px;
+    .mat-error {
+        margin-top: 10px;
+        color: #f9a19a;
+        margin-left: 30px;
     }
+}
+
+button {
+    outline: 0;
 }
 
 // .sign-up-form, .sign-in-form{
