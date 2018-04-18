@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import{ LoginDataService } from '../../../login-data.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -10,6 +12,8 @@ export class PersonalInfoComponent implements OnInit {
 
   formVar: FormGroup;
 
+  
+
   public model = {
     name: '',
     email: '',
@@ -18,7 +22,7 @@ export class PersonalInfoComponent implements OnInit {
 
   emailFormControl = new FormControl('', [
     Validators.required,
-    Validators.email,
+    Validators.email
   ]);
 
   nameFormControl = new FormControl('',[
@@ -29,14 +33,18 @@ export class PersonalInfoComponent implements OnInit {
     Validators.required
   ]);
 
-  constructor( private fb: FormBuilder ) { }
+  constructor( private fb: FormBuilder, 
+    private lds: LoginDataService,
+    private router: Router) {}
 
   ngOnInit() {
-    this.formVar = this.fb.group(this.model);
+     this.formVar = this.fb.group(this.model);
   }
 
-  onSubmit(a){
-    if(FormControl)
-    console.log(a.value);
+  onSubmit(){
+    if(this.nameFormControl.status === "VALID" &&  this.emailFormControl.status === "VALID" && this.passwordFormControl.status === "VALID"){
+      this.lds.setPersonalFormData(this.model)
+        this.router.navigate(['/login']);
+    }  
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import{ LoginDataService } from '../../../login-data.service';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -8,11 +10,12 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class SignInFormComponent implements OnInit {
 
-  // public model = {
-  //   name: '',
-  //   email: '',
-  //   pass: ''
-  // }
+  formVar: FormGroup;
+
+  public model = {
+    email: '',
+    pass: ''
+  }
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -24,9 +27,22 @@ export class SignInFormComponent implements OnInit {
     Validators.required
   ]);
 
-  constructor( ) { }
+  constructor( private fb: FormBuilder, 
+  private lds: LoginDataService, 
+  private router: Router) { }
 
   ngOnInit() {
+    this.formVar = this.fb.group(this.model);
+  }
+
+  onSubmit(){
+    if(this.emailFormControl.status === "VALID" && this.passwordFormControl.status === "VALID"){
+      var loggedInUser = this.lds.getUserDetails();
+      if(loggedInUser.email === this.model.email && loggedInUser.pass === this.model.pass)
+        this.router.navigate(['/home']);
+      else
+        window.alert("Invalid Email or Password");
+    }  
   }
 
 }

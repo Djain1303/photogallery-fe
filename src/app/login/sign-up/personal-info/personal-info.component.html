@@ -1,5 +1,5 @@
 <div class="personal-info-form-container">
-    <form #PIForm="ngForm" class="sign-up-form" [formGroup]="formVar" (ngSubmit)="onSubmit(formVar)">
+    <form #PIForm="ngForm" class="sign-up-form" [formGroup]="formVar" (ngSubmit)="onSubmit()">
         <mat-form-field class="input-full-width">
             <input matInput placeholder="Name" [(ngModel)]="model.name" [formControl]="nameFormControl" class="sign-up-inputs">
             <mat-error *ngIf="nameFormControl.hasError('required')">

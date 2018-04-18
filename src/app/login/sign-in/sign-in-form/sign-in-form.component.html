@@ -1,8 +1,8 @@
 <div class="sign-in-form-container">
-    <form class="sign-in-form">
+    <form class="sign-in-form" #PIForm="ngForm" [formGroup]="formVar" (ngSubmit)="onSubmit()">
 
         <mat-form-field class="input-full-width">
-            <input matInput placeholder="Email" [formControl]="emailFormControl" class="sign-in-inputs">
+            <input matInput placeholder="Email" [(ngModel)]="model.email" [formControl]="emailFormControl" class="sign-in-inputs">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
             </mat-error>
@@ -13,7 +13,7 @@
         </mat-form-field>
 
         <mat-form-field class="input-full-width">
-            <input matInput type="password" placeholder="Password" [formControl]="passwordFormControl" class="sign-in-inputs">
+            <input matInput type="password" placeholder="Password" [(ngModel)]="model.pass" [formControl]="passwordFormControl" class="sign-in-inputs">
             <mat-error *ngIf="passwordFormControl.hasError('required')">
                 Password is
                 <strong>required</strong>
@@ -21,7 +21,8 @@
         </mat-form-field>
 
         <div class="sign-in-form-continue-button">
-            <button routerLink="/home">Continue</button>
+            <!-- <button routerLink="/home">Continue</button> -->
+            <button type="submit" >Continue</button>
         </div>
 
     </form>
